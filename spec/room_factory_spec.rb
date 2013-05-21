@@ -1,0 +1,3 @@
+describe GameRoom do
+
+end
