@@ -1,9 +1,11 @@
+require 'utils'
 class GameRoom
+  include Utils
   attr_accessor :exits, :items, :title, :actions
   def initialize(title="An Empty Room")
     @title = title
     @exits = {}
-    @items = []
+    @items = ItemSet.new
     @actions = {}
   end
   
@@ -36,14 +38,17 @@ class GameRoom
   end
 end
 airlock = GameRoom.rooms[:airlock]
-airlock.title = "the airlock to a derelict space station."
+airlock.title = "the AIRLOCK to a derelict space station."
+airlock.items << "SpaceSuit"
 
 mess_hall = GameRoom.rooms[:mess_hall]
-mess_hall.title = "a dirty mess call that smells of old cheese."
+mess_hall.title = "a dirty MESS HALL that smells of old cheese."
 
 science_lab = GameRoom.rooms[:science_lab]
+science_lab.title = "a SCIENCE LAB with glowing lights on the walls"
 
 crew_quarters = GameRoom.rooms[:crew_quarters]
+crew_quarters.title = "the CREW QUARTERS, which looks hastily abandoned"
 
 launch_control = GameRoom.rooms[:launch_control]
 
